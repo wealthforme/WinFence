@@ -60,7 +60,7 @@ Steam 资产名:**WinFence**
 | **配置透明** | 私有 | ✅ **JSON 可读,容易备份迁移** |
 | **开源** | ❌ | ✅ MIT 协议 |
 | **价格** | $8.99 起 + 订阅 | ✅ **核心永久免费,Steam 增值可选** |
-| **体积** | 越来越臃肿 | ✅ **目标 < 30MB,冷启动 < 1s** |
+| **体积** | 越来越臃肿 | ✅ **self-contained 单文件 ~80MB(无 R2R/trim),优化后 ~50MB;冷启动 < 1s** |
 
 差异化核心三点:**网格化(更整齐) + 透明开源(更可信) + AI 加持(更智能)**。
 
@@ -91,6 +91,7 @@ Steam 资产名:**WinFence**
 
 **配套**:
 - 打包:Steamworks SDK + Inno Setup(独立分发)
+- 部署方式:**`dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true`** —— 产物为单文件 exe,自带 .NET 8 运行时,**用户零依赖**。体积 ~80MB(开启 trim + R2R 可压到 ~50MB)
 - 签名:标准代码签名(Steam 上架强制)
 - 日志:Serilog
 - 配置:JSON(本地 `AppData`)
