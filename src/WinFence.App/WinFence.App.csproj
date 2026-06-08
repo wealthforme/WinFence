@@ -14,6 +14,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <!-- NU1701: H.NotifyIcon.Wpf 2.4.1 declares net4x TFMs that don't apply to net8.0-windows;
+         the package is fully compatible at runtime. Suppress this build-time noise. -->
+    <NoWarn>$(NoWarn);NU1701</NoWarn>
   </PropertyGroup>
 
 </Project>
